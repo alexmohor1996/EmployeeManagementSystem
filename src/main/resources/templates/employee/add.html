@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hire Employee</title>
+		<script src="http://localhost:35729/livereload.js"></script>
+		<!-- CSS only -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+		<!-- JavaScript Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+	</head>
+	<style>
+		div{width: 250px; height: 50; text-align: center; margin: auto}
+		h1{color: yellow; font-size: 250%; font-weight: bold; font-style: italic;}
+		body{text-align: center; background-color:black; background-image: url("https://i.imgur.com/x5u0KO9.jpg");}
+		form{color: red; font-size: 150%;}
+	</style>
+	<div class="container">
+		<body>
+			<h1>Hire New Employee Form</h1>
+			<form method="post" th:action="@{/employee/add}">
+				<input type="hidden" th:value="${employee.id}" name="employee_id">
+				
+				<div class="mb-3">
+					<label for="first_name" class="form-label">First Name</label>
+					<input type="text" class="form-control" aria-describedby="first_name" name="first_name" id="first_name">
+					<!--				<div id="firstNameHelp" class="form-text">Employee's first name</div>-->
+				</div>
+				
+				<div class="mb-3">
+					<label for="last_name" class="form-label">Last Name</label>
+					<input type="text" class="form-control" aria-describedby="last_name" name="last_name" id="last_name">
+					<!--				<div id="lastNameHelp" class="form-text">Employee's last name</div>-->
+				</div>
+				
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label>
+					<input type="text" class="form-control" aria-describedby="email" name="email" id="email">
+					<!--				<div id="emailHelp" class="form-text">Employee's email</div>-->
+				</div>
+				
+				<div class="mb-3">
+					<label for="phone_number" class="form-label">Phone Number</label>
+					<input type="text" class="form-control" aria-describedby="phone_number" name="phone_number" id="phone_number">
+					<!--				<div id="phoneNumber" class="form-text">Employee's phone number</div>-->
+				</div>
+				
+				<div class="mb-3">
+					<label for="salary" class="form-label">Salary</label>
+					<input type="text" class="form-control" aria-describedby="salary" name="salary" id="salary">
+					<!--				<div id="salaryHelp" class="form-text">Employee's salary</div>-->
+				</div>
+				
+				<button type="submit" class="btn btn-primary">Submit</button>
+				
+				<p style="text-align: center; font-size: 150%">
+					<a class="btn btn-info" th:href="@{/employee/}">Return to the employees list</a>
+				</p>
+				<p style="text-align: center; font-size: 150%">
+					<a class="btn btn-info" th:href="@{/}">Return to home page</a>
+				</p>
+			</form>
+		</body>
+	</div>
+</html>
