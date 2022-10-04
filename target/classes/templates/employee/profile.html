@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>User Profile</title>
+	<script src="http://localhost:35729/livereload.js"></script>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<!-- JavaScript Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</head>
+<style>
+		div{width: 250px; height: 50; text-align: center; margin: auto}
+		h1{color: 1c4e80; font-size: 250%; font-weight: bold; font-style: italic;}
+		body{background-color: #EAEAEA; }
+		form{color: lightgreen; font-size: 150%;}
+		table {border: 3px solid white; color: white; font-size: 150%; font-weight: bold;}
+		td {border: 3px solid white; color: white}
+		th {border: 3px solid white;}
+		tr {height: 50px;}
+		tbody, tr, td{color: #20283E;}
+	</style>
+<div class="container">
+	<body>
+		<h1 th:text="'Profile of ' + ${employee.firstName}"></h1>
+		<table class="table table-striped" style="width:100%">
+			<tr>
+				<th rowspan="2">Name</th>
+				<td th:text="${employee.firstName}"></td>
+			</tr>
+			<tr>
+				<td th:text="${employee.lastName}"></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td th:text="${employee.email}"></td>
+			</tr>
+			<tr>
+				<th>Phone Number</th>
+				<td th:text="${employee.phoneNumber}"></td>
+			</tr>
+			<tr>
+				<th>Salary</th>
+				<td th:text="${employee.salary}"></td>
+			</tr>
+		</table>
+		<br>
+		<a class="btn btn-danger" th:href="@{/employee/delete/{id}(id=${employee.id})}">Fire Employee</a><br><br>
+		<a class="btn btn-secondary" th:href="@{/}">Return to home page</a><br><br>
+		<a class="btn btn-secondary" th:href="@{/employee/}">Return to the employees list</a>
+	</body>
+</div>
+</html>

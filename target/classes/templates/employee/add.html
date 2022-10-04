@@ -11,15 +11,15 @@
 	</head>
 	<style>
 		div{width: 250px; height: 50; text-align: center; margin: auto}
-		h1{color: yellow; font-size: 250%; font-weight: bold; font-style: italic;}
-		body{text-align: center; background-color:black; background-image: url("https://i.imgur.com/x5u0KO9.jpg");}
-		form{color: red; font-size: 150%;}
+		h1{color: #484848; font-size: 250%; font-weight: bold; font-style: italic;}
+		body{text-align: center; background-color: #EAEAEA;}
+		form{color: #1c4e80; font-size: 150%;}
 	</style>
 	<div class="container">
 		<body>
 			<h1>Hire New Employee Form</h1>
 			<form method="post" th:action="@{/employee/add}">
-				<input type="hidden" th:value="${employee.id}" name="employee_id">
+<!--				<input type="hidden" th:value="${employees.id}" name="employee_id">-->
 				
 				<div class="mb-3">
 					<label for="first_name" class="form-label">First Name</label>
@@ -54,10 +54,10 @@
 				<button type="submit" class="btn btn-primary">Submit</button>
 				
 				<p style="text-align: center; font-size: 150%">
-					<a class="btn btn-info" th:href="@{/employee/}">Return to the employees list</a>
+					<a class="btn btn-secondary" th:href="@{/employee/}">Return to the employees list</a>
 				</p>
 				<p style="text-align: center; font-size: 150%">
-					<a class="btn btn-info" th:href="@{/}">Return to home page</a>
+					<a class="btn btn-secondary" th:href="@{/}">Return to home page</a>
 				</p>
 			</form>
 		</body>

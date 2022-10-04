@@ -58,6 +58,12 @@ public class EmployeeController {
 		model.addAttribute("employee", employee.get());
 		return "employee/edit";
 	}
+	@GetMapping ("/profile/{id}")
+	public String showUsersProfile(Model model, @PathVariable("id") UUID employeeId){
+		Optional<Employee> employee = jpaEmployeeRepository.findById(employeeId);
+		model.addAttribute("employee", employee.get());
+		return "employee/profile";
+	}
 
 	@PostMapping("/edit")
 	public RedirectView editEmployee(Model model,
@@ -76,6 +82,7 @@ public class EmployeeController {
 		jpaEmployeeRepository.save(employee.get());
 		return new RedirectView("/employee/");
 	}
+
 
 	private EmployeeRepository repo = new EmployeeRepository();
 }
