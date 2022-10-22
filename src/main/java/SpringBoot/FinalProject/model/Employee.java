@@ -1,5 +1,7 @@
 package SpringBoot.FinalProject.model;
 
+import SpringBoot.FinalProject.audit.AuditableBase;
+
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee extends AuditableBase {
 	@Id
 	private UUID id;
 	@Column(name = "first_name")

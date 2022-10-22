@@ -1,7 +1,6 @@
 package SpringBoot.FinalProject.controller;
 
 import SpringBoot.FinalProject.model.Employee;
-import SpringBoot.FinalProject.repository.EmployeeRepository;
 import SpringBoot.FinalProject.repository.JpaEmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,7 +36,7 @@ public class EmployeeController {
 									@RequestParam("last_name") String lastName,
 									@RequestParam("email") String email,
 									@RequestParam("phone_number") String phoneNumber,
-									@RequestParam("salary") short salary){
+									@RequestParam("salary") int salary){
 		//repo.addEmployee(new Employee(UUID.randomUUID(), firstName, lastName, email, phoneNumber, salary));
 		//model.addAttribute("employee", repo.getEmployees());
 		jpaEmployeeRepository.saveAndFlush(new Employee(UUID.randomUUID(), firstName, lastName, email, phoneNumber, salary));
@@ -82,7 +81,4 @@ public class EmployeeController {
 		jpaEmployeeRepository.save(employee.get());
 		return new RedirectView("/employee/");
 	}
-
-
-	private EmployeeRepository repo = new EmployeeRepository();
 }

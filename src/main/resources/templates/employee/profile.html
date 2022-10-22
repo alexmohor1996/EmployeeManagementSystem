@@ -43,6 +43,14 @@
 				<th>Salary</th>
 				<td th:text="${employee.salary}"></td>
 			</tr>
+			<tr>
+				<th>Created Date</th>
+				<td th:text="${employee.createdDate}"></td>
+			</tr>
+			<tr>
+				<th>Modified Date</th>
+				<td th:text="${employee.modifiedDate}"></td>
+			</tr>
 		</table>
 		<br>
 		<a class="btn btn-danger" th:href="@{/employee/delete/{id}(id=${employee.id})}">Fire Employee</a><br><br>
