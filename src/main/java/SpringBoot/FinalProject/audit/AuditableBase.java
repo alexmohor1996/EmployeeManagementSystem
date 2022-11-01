@@ -10,6 +10,9 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
+/**
+ * Extended class used to show the date when an employee has been hired, or when its details have been updated last time
+ */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class AuditableBase {
