@@ -3,6 +3,7 @@ package SpringBoot.FinalProject.controller;
 import SpringBoot.FinalProject.model.Employee;
 import SpringBoot.FinalProject.repository.JpaEmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class EmployeeController {
 	 */
 	@GetMapping("/")
 	public String showEmployeeList(Model model){
-		model.addAttribute("employees", jpaEmployeeRepository.findAll());
+		model.addAttribute("employees", jpaEmployeeRepository.findAll(Sort.by(Sort.Direction.ASC, "id")));
 		return "employee/list";
 	}
 

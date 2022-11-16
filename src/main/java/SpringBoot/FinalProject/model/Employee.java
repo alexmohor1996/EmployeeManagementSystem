@@ -1,16 +1,18 @@
 package SpringBoot.FinalProject.model;
 
-import SpringBoot.FinalProject.audit.AuditableBase;
+/*import SpringBoot.FinalProject.audit.AuditableBase;*/
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.Date;
 import java.util.UUID;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee extends AuditableBase {
+@EntityListeners(AuditingEntityListener.class)
+public class Employee {
 	@Id
 	private UUID id;
 	@Column(name = "first_name")
@@ -27,6 +29,13 @@ public class Employee extends AuditableBase {
 
 	@Column(name = "salary")
 	private int salary;
+
+	@CreatedDate
+	@Column(name = "created_date", nullable = false, updatable = false)
+	private Date createdDate;
+
+	@LastModifiedDate
+	private Date modifiedDate;
 
 	public Employee() {
 	}
@@ -86,5 +95,21 @@ public class Employee extends AuditableBase {
 
 	public void setSalary(int salary) {
 		this.salary = salary;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
 	}
 }
